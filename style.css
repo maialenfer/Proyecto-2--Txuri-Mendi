@@ -161,6 +161,44 @@ a[href*="login"]:hover {
     color: white;
 }
 
+/* ESTILOS ESPECÍFICOS PARA EL FOOTER */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Espacio entre el copyright y los contactos */
+}
+
+.footer-contact {
+    display: flex;
+    gap: 2rem; /* Espacio entre el email y el instagram */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-contact a {
+    color: var(--color-blanco); /* Usa el dorado que ya tenías definido */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transicion-suave);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact a:hover {
+    color: var(--color-dorado-hover);
+    text-decoration: underline;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 
 /* 9. RESPONSIVE */
 @media (max-width: 768px) {
