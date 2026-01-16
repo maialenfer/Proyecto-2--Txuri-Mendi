@@ -5,7 +5,7 @@
     --color-acento: #b89b5e;
     --color-acento-hover: #a4884f;
     --color-texto: #2c2c2c;
-    --radio-borde: 12px;
+    --radio-borde: 15px; /* Ajustado para el estilo redondeado de tu imagen */
     --espaciado: 20px;
     --transition: 0.3s ease;
 }
@@ -24,13 +24,8 @@ body {
 /* CONTENEDOR PRINCIPAL */
 .container {
     width: 100%;
-    max-width: 450px; /* Un poco más estrecho para Login */
+    max-width: 420px;
     padding: 20px;
-}
-
-/* BOX-SIZING GLOBAL */
-.formulario, .formulario * {
-    box-sizing: border-box;
 }
 
 /* FORMULARIO */
@@ -41,76 +36,107 @@ body {
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     display: flex;
     flex-direction: column;
-    gap: var(--espaciado);
+    gap: 15px; /* Gap para controlar el espaciado vertical */
     animation: fadeInUp 1s ease forwards;
     color: var(--color-texto);
+    box-sizing: border-box;
 }
 
-/* TITULO */
+/* TÍTULO */
 .formulario h2 {
     text-align: center;
-    margin-bottom: 10px;
-    font-size: 2rem;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
     color: var(--color-texto);
 }
 
-/* LABEL */
-.formulario label {
-    display: block;
-    margin-bottom: 6px;
+/* CAMPOS DE ENTRADA */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
     font-size: 14px;
     font-weight: bold;
     color: var(--color-texto);
 }
 
-/* INPUTS */
-.formulario input[type="text"],
-.formulario input[type="password"] {
-    padding: 12px;
+.campo input {
+    padding: 14px;
     border-radius: var(--radio-borde);
     border: 1px solid #ccc;
     font-size: 14px;
     width: 100%;
+    background-color: #f9f9f9;
     font-family: inherit;
     transition: border var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
 }
 
-.formulario input:focus {
+.campo input:focus {
     outline: none;
     border-color: var(--color-acento);
-    box-shadow: 0 0 8px rgba(184,155,94,0.5);
+    box-shadow: 0 0 8px rgba(184,155,94,0.3);
 }
 
-/* BOTÓN */
-.formulario button {
-    padding: 14px;
-    background-color: var(--color-acento);
+/* INSTRUCCIÓN */
+.instruccion {
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+    margin: 10px 0;
+}
+
+/* CONTENEDOR DE BOTONES (FLEX GRID) */
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* BOTONES DE ACCESO */
+.btn-acceso {
+    width: 100%;
+    padding: 15px;
     border: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
     border-radius: var(--radio-borde);
+    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
     transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-    margin-top: 10px;
 }
 
-.formulario button:hover {
+.btn-cliente {
+    background-color: var(--color-acento);
+    color: white;
+}
+
+.btn-cliente:hover {
     background-color: var(--color-acento-hover);
-    transform: scale(1.03);
-    box-shadow: 0 4px 20px rgba(184,155,94,0.6);
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(184,155,94,0.4);
+}
+
+.btn-gestor {
+    background-color: #555; /* Color gris para diferenciar al gestor */
+    color: white;
+}
+
+.btn-gestor:hover {
+    background-color: #444;
+    transform: scale(1.02);
 }
 
 /* ENLACE ATRÁS */
 .link-atras {
     text-decoration: none;
-    color: #888;
+    color: #aaa;
     font-size: 0.9rem;
-    font-family: "Georgia", serif;
     margin-bottom: 5px;
     display: inline-block;
-    transition: color 0.3s ease;
+    transition: color var(--transition);
 }
 
 .link-atras:hover {
@@ -129,6 +155,6 @@ body {
         padding: 25px;
     }
     .formulario h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }

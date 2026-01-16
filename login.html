@@ -24,16 +24,17 @@
                 <input type="password" name="password" placeholder="Introduce tu contraseña" required>
             </div>
             
-            <div class="radio-flex" style="display: flex; gap: 20px; justify-content: center; margin: 10px 0;">
-                <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px;">
-                    <input type="radio" name="user-type" value="empleado" style="width: auto;"> Empleado
-                </label>
-                <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px;">
-                    <input type="radio" name="user-type" value="cliente" checked style="width: auto;"> Cliente
-                </label>
-            </div>
+            <p class="instruccion">Selecciona tu perfil para acceder:</p>
 
-            <button type="submit">Entrar</button>
+            <div class="botones-container">
+                <button type="submit" formaction="index.html" class="btn-acceso btn-cliente">
+                    Entrar como Cliente
+                </button>
+
+                <button type="submit" formaction="datos.html" class="btn-acceso btn-gestor">
+                    Entrar como Gestor
+                </button>
+            </div>
         </form>
     </div>
 
