@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Usuarios | TXURI MENDI</title>
+    <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
+
+    <div class="container">
+        <form class="formulario">
+            <a href="index.html" class="link-atras">← Volver al inicio</a>
+
+            <h2>Acceso Usuarios</h2>
+            
+            <div class="campo">
+                <label>Usuario</label>
+                <input type="text" name="usuario" placeholder="Introduce tu usuario" required>
+            </div>
+            
+            <div class="campo">
+                <label>Contraseña</label>
+                <input type="password" name="password" placeholder="Introduce tu contraseña" required>
+            </div>
+            
+            <div class="radio-flex" style="display: flex; gap: 20px; justify-content: center; margin: 10px 0;">
+                <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                    <input type="radio" name="user-type" value="empleado" style="width: auto;"> Empleado
+                </label>
+                <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                    <input type="radio" name="user-type" value="cliente" checked style="width: auto;"> Cliente
+                </label>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+</body>
+</html>

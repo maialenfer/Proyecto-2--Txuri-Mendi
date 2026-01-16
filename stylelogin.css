@@ -1,0 +1,134 @@
+/* VARIABLES */
+:root {
+    --color-fondo: #1c1c1c;
+    --color-form-bg: #ffffff;
+    --color-acento: #b89b5e;
+    --color-acento-hover: #a4884f;
+    --color-texto: #2c2c2c;
+    --radio-borde: 12px;
+    --espaciado: 20px;
+    --transition: 0.3s ease;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: var(--color-fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 450px; /* Un poco más estrecho para Login */
+    padding: 20px;
+}
+
+/* BOX-SIZING GLOBAL */
+.formulario, .formulario * {
+    box-sizing: border-box;
+}
+
+/* FORMULARIO */
+.formulario {
+    background-color: var(--color-form-bg);
+    padding: 40px;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaciado);
+    animation: fadeInUp 1s ease forwards;
+    color: var(--color-texto);
+}
+
+/* TITULO */
+.formulario h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: var(--color-texto);
+}
+
+/* LABEL */
+.formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-texto);
+}
+
+/* INPUTS */
+.formulario input[type="text"],
+.formulario input[type="password"] {
+    padding: 12px;
+    border-radius: var(--radio-borde);
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    font-family: inherit;
+    transition: border var(--transition), box-shadow var(--transition);
+}
+
+.formulario input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 8px rgba(184,155,94,0.5);
+}
+
+/* BOTÓN */
+.formulario button {
+    padding: 14px;
+    background-color: var(--color-acento);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    margin-top: 10px;
+}
+
+.formulario button:hover {
+    background-color: var(--color-acento-hover);
+    transform: scale(1.03);
+    box-shadow: 0 4px 20px rgba(184,155,94,0.6);
+}
+
+/* ENLACE ATRÁS */
+.link-atras {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    font-family: "Georgia", serif;
+    margin-bottom: 5px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.link-atras:hover {
+    color: var(--color-acento);
+}
+
+/* ANIMACIÓN */
+@keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width: 480px) {
+    .formulario {
+        padding: 25px;
+    }
+    .formulario h2 {
+        font-size: 1.8rem;
+    }
+}

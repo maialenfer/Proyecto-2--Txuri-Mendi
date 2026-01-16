@@ -1,0 +1,176 @@
+/* 1. VARIABLES CSS */
+:root {
+    --color-oscuro: #222;
+    --color-negro-suave: #333;
+    --color-dorado: #ffdd57;
+    --color-dorado-hover: #ffe47a; 
+    --color-blanco: #ffffff;
+    --fuente-principal: 'Georgia', serif;
+    --transicion-suave: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 2. RESET Y ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+    color: var(--color-blanco); 
+    background-color: var(--color-oscuro); 
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3. FLEXBOX - HEADER Y NAVEGACIÓN */
+.header {
+    background-color: var(--color-oscuro);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #444;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transicion-suave);
+}
+
+.nav a:hover {
+    color: var(--color-dorado);
+}
+
+/* 4. ANIMACIONES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* 5. SECCIONES */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url(https://img.freepik.com/fotos-premium/recepcion-hotel-lujo-vacia-hermosa-vista-ciudad-noche-creada-ai-generativo_124507-165573.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.about, .services, .footer {
+    background-color: var(--color-oscuro);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+/* 6. GRID - HABITACIONES */
+.rooms {
+    padding: 4rem 0;
+    background-color: var(--color-negro-suave);
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.room {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border: 1px solid #444;
+    transition: var(--transicion-suave);
+}
+
+.room:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* 7. BOTONES (RESTAURANTE E INICIAR SESIÓN UNIFICADOS) */
+/* He agrupado todas las posibles clases de botones para que sean iguales */
+.btn, 
+.btn-nav, 
+.contact button, 
+a[href*="login"], 
+.nav ul li a.btn-nav {
+    background: var(--color-dorado) !important;
+    color: #000000 !important; /* LETRA NEGRA OBLIGATORIA */
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* HOVER SUTIL PARA AMBOS */
+.btn:hover, 
+.btn-nav:hover, 
+.contact button:hover,
+a[href*="login"]:hover {
+    background: var(--color-dorado-hover) !important;
+    color: #000000 !important;
+    transform: scale(1.04); /* Crecimiento muy suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 8. PÁGINA DE LOGIN */
+.login-page-container {
+    background-color: var(--color-negro-suave);
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 5rem auto;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0 1rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #444;
+    color: white;
+}
+
+/* 9. RESPONSIVE */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
