@@ -1,0 +1,158 @@
+/* 1. VARIABLES */
+:root {
+    --color-oscuro: #1a1a1a;
+    --color-dorado: #ffdd57;
+    --color-dorado-hover: #ffe47a; 
+    --color-blanco: #ffffff;
+    --fuente-principal: 'Georgia', serif;
+    --transicion: all 0.3s ease-in-out;
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-oscuro);
+    color: var(--color-blanco);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3. HEADER */
+.header {
+    background-color: var(--color-oscuro);
+    padding: 1rem 0;
+    border-bottom: 1px solid #333;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* ENLACES SUPERIORES */
+.nav a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transicion);
+    display: inline-block; /* Permite que el escalado funcione bien */
+}
+
+/* EFECTO: Los 3 de arriba crecen al pasar el ratón */
+.nav ul li a:not(.btn-nav):hover {
+    color: var(--color-dorado);
+    transform: scale(1.15); /* Crece un poquito */
+}
+
+/* 4. HERO (FOTO MÁS CLARA, PEQUEÑA Y NÍTIDA) */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('fotos/imagenportada.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 75vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+}
+
+/* 5. BOTONES */
+.btn, .btn-nav {
+    background: var(--color-dorado) !important;
+    color: #000000 !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transicion);
+}
+
+.btn:hover, .btn-nav:hover {
+    background: var(--color-dorado-hover) !important;
+    transform: scale(1.05); /* El botón también crece levemente */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 6. SECCIONES SECUNDARIAS */
+.about {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.footer {
+    padding: 3rem 0;
+    background-color: #111;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-link {
+    color: var(--color-blanco);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 7. RESPONSIVE */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav ul {
+        gap: 1rem;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center;
+    }
+}

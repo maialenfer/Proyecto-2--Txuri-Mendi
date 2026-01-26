@@ -1,0 +1,150 @@
+/* VARIABLES */
+:root {
+    --color-fondo: #1c1c1c;
+    --color-form-bg: #ffffff;
+    --color-acento: #b89b5e;
+    --color-acento-hover: #a4884f;
+    --color-texto: #2c2c2c;
+    --radio-borde: 12px;
+    --espaciado: 20px;
+    --transition: 0.3s ease;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: var(--color-fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* BOX-SIZING GLOBAL */
+.formulario, .formulario * {
+    box-sizing: border-box;
+}
+
+/* FORMULARIO */
+.formulario {
+    background-color: var(--color-form-bg);
+    padding: 30px;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaciado);
+    animation: fadeInUp 1s ease forwards;
+    color: var(--color-texto);
+}
+
+/* TITULO */
+.formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--color-texto);
+}
+
+/* LABEL */
+.formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+/* INPUTS Y SELECT */
+.formulario input,
+.formulario select {
+    padding: 12px;
+    border-radius: var(--radio-borde);
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    transition: border var(--transition), box-shadow var(--transition);
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 8px rgba(184,155,94,0.5);
+}
+
+/* GRID PARA FECHAS */
+.fecha-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+    gap: 15px;
+}
+
+.fecha-grid div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* BOTÓN */
+.formulario button {
+    padding: 14px;
+    background-color: var(--color-acento);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.formulario button:hover {
+    background-color: var(--color-acento-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(184,155,94,0.6);
+}
+
+.link-atras {
+    text-decoration: none;
+    color: #888; /* Gris suave de la imagen */
+    font-size: 0.9rem;
+    font-family: "Georgia", serif;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.link-atras:hover {
+    color: #b89b5e; /* Dorado al pasar el ratón */
+}
+
+
+/* ANIMACIÓN */
+@keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .fecha-grid {
+        grid-template-columns: 1fr; /* fechas verticales en tablet/móvil */
+    }
+
+    .formulario {
+        padding: 25px;
+    }
+}
+
+@media(max-width: 480px) {
+    .formulario h2 {
+        font-size: 1.8rem;
+    }
+}

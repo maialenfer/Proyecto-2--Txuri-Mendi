@@ -1,0 +1,138 @@
+/* 1. VARIABLES */
+:root {
+    --color-fondo-negro: #000000;
+    --color-tarjeta-blanca: #ffffff;
+    --color-acento: #b89b5e;
+    --color-acento-hover: #a4884f;
+    --color-texto-oscuro: #2c2c2c;
+    --color-texto-blanco: #ffffff;
+    --radio-borde: 12px;
+    --espaciado: 20px;
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 2. RESET Y FONDO TOTAL NEGRO */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-negro);
+    height: 100%;
+}
+
+/* 3. SECCIÓN CONTACTO (FLEXBOX) */
+.contact {
+    background-color: var(--color-fondo-negro);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 4. EL CUADRADO BLANCO (CONTENEDOR) */
+.contact .container {
+    background-color: var(--color-tarjeta-blanca); /* Fondo blanco */
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* 5. TÍTULOS (Ahora en negro para que se vean sobre el blanco) */
+.contact-titulo {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-texto-oscuro);
+    font-family: "Georgia", serif;
+}
+
+.contact-subtitulo {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* 6. FORMULARIO (FLEXBOX VERTICAL) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaciado);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: var(--color-texto-oscuro);
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(184, 155, 94, 0.1);
+}
+
+/* 7. BOTÓN (Letra negra y crecimiento sutil) */
+.contact-form .btn {
+    padding: 14px;
+    background-color: var(--color-acento);
+    border: none;
+    color: #000000; /* Letra negra */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.contact-form .btn:hover {
+    background-color: var(--color-acento-hover);
+    transform: scale(1.03); /* Crece muy poco */
+    box-shadow: 0 4px 15px rgba(184, 155, 94, 0.3);
+}
+
+.link-atras {
+    text-decoration: none;
+    color: #888; /* Gris suave como en tus capturas */
+    font-size: 0.85rem;
+    font-family: "Georgia", serif;
+    display: block;
+    text-align: left; /* Alineado a la izquierda dentro del cuadro */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.link-atras:hover {
+    color: var(--color-acento); /* Cambia al dorado al pasar el ratón */
+}
+
+
+
+/* 8. ANIMACIÓN */
+@keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+/* 9. RESPONSIVE (Media Queries) */
+@media (max-width: 480px) {
+    .contact .container {
+        padding: 25px;
+    }
+    .contact-titulo {
+        font-size: 1.7rem;
+    }
+}
