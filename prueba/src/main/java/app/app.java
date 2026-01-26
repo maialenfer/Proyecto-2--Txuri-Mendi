@@ -10,61 +10,98 @@ public class app {
 
     public static void main(String[] args) {
         port(4567);
-
-        // Esto busca en src/main/resources/public
         staticFiles.location("/public");
 
-        get("/", (req, res) -> {
-            res.redirect("/login.html");
+        // --- LOGIN ---
+        post("/login", (req, res) -> {
+            String user = req.queryParams("usuario");
+            String pass = req.queryParams("contrasena");
+            Integer tipo = obtenerTipoUsuario(user, pass);
+            
+            if (tipo == null || tipo == 0) {
+                res.status(401);
+                return "Usuario o contraseña incorrectos. <a href='/login.html'>Volver</a>";
+            }
+            req.session().attribute("usuario", user);
+            res.redirect("/index.html");
             return null;
         });
 
-        post("/login", (req, res) -> {
-            // "usuario" y "contrasena" deben ser igual al 'name' de los input del HTML
-            String user = req.queryParams("usuario");
-            String pass = req.queryParams("contrasena");
+        // --- RESERVAR MESA (RESTAURANTE) ---
+        post("/reservar-mesa", (req, res) -> {
+            String user = req.session().attribute("usuario");
+            if (user == null) { res.redirect("/login.html"); return null; }
 
-            Integer tipo = obtenerTipoUsuario(user, pass);
+            String personas = req.queryParams("personas");
+            String fecha = req.queryParams("dia");
+            String hora = req.queryParams("hora");
+            String detalle = "Mesa para " + personas + " personas a las " + hora;
 
-            if (tipo == null || tipo == 0) {
-                res.status(401);
-                return "Usuario o contraseña incorrectos";
-            }
-
-            if (tipo == 1) {
-                res.redirect("/datos.html");
-            } else if (tipo == 2) {
-                res.redirect("/index.html");
-            }
+            guardarReserva(user, "Restaurante", fecha, detalle);
+            res.redirect("/mis-reservas");
             return null;
+        });
+
+        // --- RESERVAR HABITACIÓN (HOTEL) ---
+        post("/reservar-hotel", (req, res) -> {
+            String user = req.session().attribute("usuario");
+            if (user == null) { res.redirect("/login.html"); return null; }
+
+            String habitacion = req.queryParams("habitacion");
+            String entrada = req.queryParams("entrada");
+            String detalle = "Habitación: " + habitacion + " (Check-in)";
+
+            guardarReserva(user, "Hotel", entrada, detalle);
+            res.redirect("/mis-reservas");
+            return null;
+        });
+
+        // --- VER MIS RESERVAS ---
+        get("/mis-reservas", (req, res) -> {
+            String user = req.session().attribute("usuario");
+            if (user == null) { res.redirect("/login.html"); return null; }
+
+            StringBuilder html = new StringBuilder("<html><head><meta charset='UTF-8'>");
+            html.append("<style>body{font-family:sans-serif;padding:40px;background:#f4f4f4;}table{width:100%;border-collapse:collapse;background:white;}th,td{padding:12px;border:1px solid #ddd;text-align:left;}th{background:#333;color:white;}</style></head><body>");
+            html.append("<h1>Mis Reservas, ").append(user).append("</h1>");
+            html.append("<table><tr><th>Servicio</th><th>Fecha</th><th>Detalle</th></tr>");
+
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                 PreparedStatement ps = conn.prepareStatement("SELECT nombre_servicio, fecha_reserva, detalle FROM INSCRIPCIONES i JOIN USUARIOS u ON i.id_usuario = u.id_usuario WHERE u.usuario = ?")) {
+                ps.setString(1, user);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    html.append("<tr><td>").append(rs.getString("nombre_servicio"))
+                        .append("</td><td>").append(rs.getString("fecha_reserva"))
+                        .append("</td><td>").append(rs.getString("detalle")).append("</td></tr>");
+                }
+            } catch (SQLException e) { return "Error: " + e.getMessage(); }
+
+            html.append("</table><br><a href='/index.html'>Volver al inicio</a></body></html>");
+            return html.toString();
         });
     }
 
-    private static Integer obtenerTipoUsuario(String usuario, String contrasena) {
-        // He cambiado 'u.contraseña' por 'u.contrasena' para evitar errores de caracteres
-        String sql = "SELECT u.id_usuario, " +
-                     "CASE WHEN e.id_usuario IS NOT NULL THEN 1 " +
-                     "     WHEN c.id_usuario IS NOT NULL THEN 2 " +
-                     "     ELSE 0 END as tipo_calculado " +
-                     "FROM USUARIOS u " +
-                     "LEFT JOIN EMPLEADO e ON u.id_usuario = e.id_usuario " +
-                     "LEFT JOIN CLIENTES c ON u.id_usuario = c.id_usuario " +
-                     "WHERE u.usuario = ? AND u.contrasena = ?";
-        
+    private static void guardarReserva(String usuario, String servicio, String fecha, String detalle) throws SQLException {
+        String sql = "INSERT INTO INSCRIPCIONES (id_usuario, nombre_servicio, fecha_reserva, detalle) VALUES ((SELECT id_usuario FROM USUARIOS WHERE usuario = ?), ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            
             ps.setString(1, usuario);
-            ps.setString(2, contrasena);
-            
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt("tipo_calculado");
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error SQL: " + e.getMessage());
+            ps.setString(2, servicio);
+            ps.setString(3, fecha);
+            ps.setString(4, detalle);
+            ps.executeUpdate();
         }
+    }
+
+    private static Integer obtenerTipoUsuario(String usuario, String contrasena) {
+        String sql = "SELECT u.id_usuario, CASE WHEN e.id_usuario IS NOT NULL THEN 1 WHEN c.id_usuario IS NOT NULL THEN 2 ELSE 0 END as tipo FROM USUARIOS u LEFT JOIN EMPLEADO e ON u.id_usuario = e.id_usuario LEFT JOIN CLIENTES c ON u.id_usuario = c.id_usuario WHERE u.usuario = ? AND u.contrasena = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, usuario); ps.setString(2, contrasena);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt("tipo");
+        } catch (SQLException e) { e.printStackTrace(); }
         return null;
     }
 }
