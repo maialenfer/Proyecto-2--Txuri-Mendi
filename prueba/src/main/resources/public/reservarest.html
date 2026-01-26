@@ -2,15 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de Mesa | Restaurante Urgull</title>
     <link rel="stylesheet" href="stylereservarest.css">
 </head>
 <body>
-
-    
 <div class="container-reserva">
-    <form class="formulario">
+    <form class="formulario" action="/reservar-mesa" method="POST">
         <a href="restaurante.html" class="link-atras">← Ver la carta</a>
         <h2>Reserva tu Mesa</h2>
         
@@ -21,24 +18,20 @@
                 <option value="2">2 Personas</option>
                 <option value="3">3 Personas</option>
                 <option value="4">4 Personas</option>
-                <option value="mas">Más de 4 (Contactar por tlf)</option>
             </select>
         </div>
 
         <div class="fecha-grid">
             <div class="campo">
                 <label>Día</label>
-                <input type="date" required>
+                <input type="date" name="dia" required>
             </div>
             <div class="campo">
                 <label>Hora</label>
-                <select required>
+                <select name="hora" required>
                     <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
                     <option value="14:30">14:30</option>
-                    <option value="20:30">20:30</option>
                     <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
                 </select>
             </div>
         </div>
@@ -46,14 +39,13 @@
         <div class="campo">
             <label>Ubicación preferida</label>
             <div class="radio-flex">
-                <label><input type="radio" name="sitio" value="dentro" checked> Interior</label>
-                <label><input type="radio" name="sitio" value="fuera"> Terraza</label>
+                <label><input type="radio" name="sitio" value="Interior" checked> Interior</label>
+                <label><input type="radio" name="sitio" value="Terraza"> Terraza</label>
             </div>
         </div>
 
         <button type="submit" class="btn-enviar">Confirmar Reserva</button>
     </form>
 </div>
-
 </body>
 </html>

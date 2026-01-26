@@ -7,34 +7,28 @@
 </head>
 <body>
     <div class="container">
-        <form class="formulario">
+        <form class="formulario" action="/reservar-hotel" method="POST">
             <a href="index.html" class="link-atras">← Volver al inicio</a>
-
             <h2>Reserva de Hotel</h2>
 
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="habitacion">Tipo de habitación</label>
-            <select id="habitacion" name="habitacion" required>
-                <option value="">Seleccione una opción</option>
-                <option value="familiar">Habitación Familiar</option>
-                <option value="doble">Habitación Doble</option>
-                <option value="suite">Suite</option>
+            <label>Tipo de habitación</label>
+            <select name="habitacion" required>
+                <option value="Familiar">Habitación Familiar</option>
+                <option value="Doble">Habitación Doble</option>
+                <option value="Suite">Suite</option>
             </select>
 
             <div class="fecha-grid">
                 <div>
-                    <label for="entrada">Fecha de entrada</label>
-                    <input type="date" id="entrada" name="entrada" required>
+                    <label>Fecha de entrada</label>
+                    <input type="date" name="entrada" required>
                 </div>
                 <div>
-                    <label for="salida">Fecha de salida</label>
-                    <input type="date" id="salida" name="salida" required>
+                    <label>Fecha de salida</label>
+                    <input type="date" name="salida" required>
                 </div>
             </div>
-
-            <button type="submit">Reservar</button>
+            <button type="submit">Reservar ahora</button>
         </form>
     </div>
 </body>
