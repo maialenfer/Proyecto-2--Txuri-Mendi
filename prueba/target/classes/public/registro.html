@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro | TXURI MENDI</title>
+    <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <form class="formulario" action="/registrar-usuario" method="POST">
+            <a href="index.html" class="link-atras">← Volver al login</a>
+            <h2>Crea tu cuenta</h2>
+            
+            <div class="campo">
+                <label>Nombre y Apellidos</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <div class="campo" style="flex: 1;">
+                    <label>DNI</label>
+                    <input type="text" name="dni" required>
+                </div>
+                <div class="campo" style="flex: 1;">
+                    <label>Teléfono</label>
+                    <input type="number" name="telefono" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Dirección</label>
+                <input type="text" name="direccion" required>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <div class="campo" style="flex: 1;">
+                    <label>Ciudad</label>
+                    <input type="text" name="ciudad" required>
+                </div>
+                <div class="campo" style="flex: 1;">
+                    <label>País</label>
+                    <input type="text" name="pais" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Nombre de Usuario</label>
+                <input type="text" name="usuario" required>
+            </div>
+            
+            <div class="campo">
+                <label>Contraseña</label>
+                <input type="password" name="contrasena" placeholder="Mínimo 6 caracteres" required>
+            </div>
+
+            <div class="botones-container">
+                <button type="submit" class="btn-acceso">Finalizar y entrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

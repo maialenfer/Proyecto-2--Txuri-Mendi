@@ -3,72 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Datos - TXURI MENDI</title>
-    <link rel="stylesheet" href="styledatos.css">
-    <link rel="icon" href="fotos/imagenportada.png" type="image/x-icon">
+    <title>Txuri Mendi - Confirmación de Registro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="datos-body">
-
-    <header class="header-datos">
-        <div class="container header-container">
-            <h1 class="logo">TXURI MENDI <span class="admin-tag">GESTIÓN</span></h1>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html" class="btn-exit">Cerrar Sesión</a></li>
-                </ul>
-            </nav>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 style="color: var(--color-dorado);">TXURI MENDI</h1>
         </div>
     </header>
 
-    <main class="main-datos container">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>Ocupación</h3>
-                <p class="valor">85%</p>
-                <span class="detalle">17/20 Disponibles</span>
+    <main class="container main-datos">
+        <div class="card-datos">
+            <div class="icono-exito">
+                <span style="font-size: 50px;">✔</span>
             </div>
-            <div class="stat-card">
-                <h3>Check-ins Hoy</h3>
-                <p class="valor">04</p>
-                <span class="detalle">Llegadas previstas</span>
+            <h2 style="color: var(--color-dorado); margin-bottom: 10px;">REGISTRO EXITOSO</h2>
+            <p style="color: #ccc; margin-bottom: 30px;">La información se ha almacenado correctamente en el servidor de Dinahosting.</p>
+
+            <div class="grid-info">
+                <div class="dato-item">
+                    <span class="label">NOMBRE</span>
+                    <span class="valor">%s</span>
+                </div>
+                <div class="dato-item">
+                    <span class="label">DNI / ID</span>
+                    <span class="valor">%s</span>
+                </div>
+                <div class="dato-item">
+                    <span class="label">TELÉFONO</span>
+                    <span class="valor">%s</span>
+                </div>
+                <div class="dato-item">
+                    <span class="label">CIUDAD</span>
+                    <span class="valor">%s</span>
+                </div>
             </div>
-            <div class="stat-card">
-                <h3>Caja Diaria</h3>
-                <p class="valor">1.240€</p>
-                <span class="detalle">Ventas brutas</span>
+
+            <div style="margin-top: 40px; border-top: 1px solid #444; padding-top: 20px;">
+                <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">
+                    Puedes consultar estos datos en cualquier momento mediante la API de gestión.
+                </p>
+                <a href="index.html" class="btn">VOLVER AL INICIO</a>
             </div>
         </div>
-
-        <section class="table-container">
-            <h3>Panel de Control de Reservas</h3>
-            <div class="table-scroll">
-                <table class="tabla-gestion">
-                    <thead>
-                        <tr>
-                            <th>Cliente</th>
-                            <th>Habitación</th>
-                            <th>Entrada</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mikel Iturbe</td>
-                            <td>Suite 01</td>
-                            <td>23/01/2026</td>
-                            <td><span class="status-ok">Confirmada</span></td>
-                        </tr>
-                        <tr>
-                            <td>Lucía Fernández</td>
-                            <td>Doble 14</td>
-                            <td>24/01/2026</td>
-                            <td><span class="status-pending">Pendiente</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
     </main>
 
+    <footer style="margin-top: 50px; text-align: center; color: #555; font-size: 0.8rem;">
+        <p>&copy; 2026 Txuri Mendi - Panel de Control Dinahosting</p>
+    </footer>
 </body>
 </html>
