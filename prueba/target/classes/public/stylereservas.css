@@ -83,7 +83,7 @@ body {
 /* GRID PARA FECHAS */
 .fecha-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+    grid-template-columns: 1fr 1fr; 
     gap: 15px;
 }
 
@@ -113,7 +113,7 @@ body {
 
 .link-atras {
     text-decoration: none;
-    color: #888; /* Gris suave de la imagen */
+    color: #888; 
     font-size: 0.9rem;
     font-family: "Georgia", serif;
     margin-bottom: 10px;
@@ -135,7 +135,7 @@ body {
 /* RESPONSIVE */
 @media(max-width: 768px) {
     .fecha-grid {
-        grid-template-columns: 1fr; /* fechas verticales en tablet/móvil */
+        grid-template-columns: 1fr; 
     }
 
     .formulario {

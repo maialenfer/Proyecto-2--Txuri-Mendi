@@ -59,7 +59,7 @@ body {
 /* EFECTO: Los 3 de arriba crecen al pasar el ratón */
 .nav ul li a:not(.btn-nav):hover {
     color: var(--color-dorado);
-    transform: scale(1.15); /* Crece un poquito */
+    transform: scale(1.15); /* Crece un poco */
 }
 
 /* 4. HERO (FOTO MÁS CLARA, PEQUEÑA Y NÍTIDA) */
@@ -103,7 +103,7 @@ body {
 
 .btn:hover, .btn-nav:hover {
     background: var(--color-dorado-hover) !important;
-    transform: scale(1.05); /* El botón también crece levemente */
+    transform: scale(1.05); /* El botón crece levemente */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 

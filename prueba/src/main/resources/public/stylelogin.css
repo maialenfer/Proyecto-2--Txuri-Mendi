@@ -91,8 +91,6 @@ body {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    
-    /* Fondo oscuro, texto claro para que se lea bien */
     color: #ffffff; 
     background-color: var(--color-acento-suave);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);

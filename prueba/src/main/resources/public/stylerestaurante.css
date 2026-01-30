@@ -1,8 +1,8 @@
 /* 1. VARIABLES - Colores de lujo (Dorado y Negro) */
 :root {
     --beige-fondo: #f5f4ed;
-    --azul-oscuro: #1c1c1c; /* Negro elegante */
-    --dorado-acento: #b89b5e; /* El dorado de la imagen de reserva */
+    --azul-oscuro: #1c1c1c; 
+    --dorado-acento: #b89b5e; 
     --dorado-hover: #a4884f;
     --blanco: #ffffff;
     --transicion: all 0.4s ease;
@@ -21,8 +21,8 @@
 }
 
 body {
-    font-family: 'Georgia', serif; /* Cambio a serif para más elegancia */
-    background-color: #1c1c1c; /* Fondo exterior negro como en las fotos */
+    font-family: 'Georgia', serif; 
+    background-color: #1c1c1c; 
     color: var(--azul-oscuro);
     margin: 0;
     padding: 10px;
@@ -68,13 +68,13 @@ body {
     box-shadow: 0 4px 15px rgba(184, 155, 94, 0.3);
 }
 
-/* 3. FLEXBOX - Header centrado */
+/* 3. FLEXBOX  */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border-bottom: 2px solid var(--dorado-acento); /* Línea divisoria dorada */
+    border-bottom: 2px solid var(--dorado-acento); 
     padding-bottom: 30px;
     margin-bottom: 40px;
 }
@@ -94,7 +94,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* 4. GRID - Organización de las secciones */
+/* 4. GRID */
 .carta-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -110,7 +110,7 @@ h2 {
     text-transform: uppercase;
 }
 
-/* 6. FLEXBOX - Detalle de los platos */
+/* 6. FLEXBOX  */
 .menu-item {
     display: flex;
     justify-content: space-between;
@@ -136,7 +136,6 @@ h2 {
     margin: 2px 0 20px 0;
     font-style: italic;
 }
-
 
 
 /* Ajuste para móviles */

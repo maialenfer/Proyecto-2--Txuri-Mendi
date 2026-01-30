@@ -2,8 +2,8 @@
 :root {
     --color-fondo: #1c1c1c;
     --color-form-bg: #ffffff;
-    --color-acento: #b89b5e;       /* Dorado de la foto */
-    --color-acento-hover: #a4884f; /* Dorado más oscuro */
+    --color-acento: #b89b5e;       
+    --color-acento-hover: #a4884f; 
     --color-texto: #2c2c2c;
     --radio-borde: 12px;
     --transicion: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -13,7 +13,7 @@ body {
     margin: 0;
     font-family: "Georgia", serif;
     background-color: var(--color-fondo);
-    display: flex; /* FLEXBOX */
+    display: flex; 
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -34,8 +34,8 @@ body {
     background: var(--color-form-bg);
     padding: 40px;
     border-radius: var(--radio-borde);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4); /* Sombra más marcada como la foto */
-    display: flex; /* FLEXBOX VERTICAL */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4); 
+    display: flex; 
     flex-direction: column;
     gap: 20px;
 }
@@ -69,7 +69,7 @@ input, select {
     background-color: #fff;
 }
 
-/* Foco en dorado */
+
 input:focus, select:focus {
     outline: none;
     border-color: var(--color-acento);

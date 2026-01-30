@@ -7,10 +7,14 @@
         <h2 class="contact-titulo">Contacto</h2>
         <p class="contact-subtitulo">¿Tienes alguna pregunta? ¡Ponte en contacto con nosotros!</p>
         
-        <form class="contact-form">
-            <input type="text" placeholder="Nombre" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <textarea placeholder="Mensaje" required></textarea>
+        <form action="/contactar" method="POST" class="contact-form">
+            
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            
+            <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+            
             <button type="submit" class="btn">Enviar</button>
         </form>
     </div>

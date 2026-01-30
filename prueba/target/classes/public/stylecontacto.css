@@ -32,17 +32,17 @@ html, body {
 
 /* 4. EL CUADRADO BLANCO (CONTENEDOR) */
 .contact .container {
-    background-color: var(--color-tarjeta-blanca); /* Fondo blanco */
+    background-color: var(--color-tarjeta-blanca); 
     max-width: 500px;
     width: 100%;
     padding: 40px;
     border-radius: var(--radio-borde);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); 
     text-align: center;
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* 5. TÍTULOS (Ahora en negro para que se vean sobre el blanco) */
+/* 5. TÍTULOS  */
 .contact-titulo {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -90,7 +90,7 @@ html, body {
     padding: 14px;
     background-color: var(--color-acento);
     border: none;
-    color: #000000; /* Letra negra */
+    color: #000000; 
     font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
@@ -106,7 +106,7 @@ html, body {
 
 .link-atras {
     text-decoration: none;
-    color: #888; /* Gris suave como en tus capturas */
+    color: #888; 
     font-size: 0.85rem;
     font-family: "Georgia", serif;
     display: block;
